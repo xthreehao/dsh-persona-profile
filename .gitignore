@@ -1,0 +1,9 @@
+node_modules/
+*.log
+.DS_Store
+Thumbs.db
+
+# 本地跑测试/分析产生的临时产物
+report*.md
+fuck-report*.md
+sandbox/

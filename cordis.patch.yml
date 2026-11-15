@@ -1,0 +1,16 @@
+# dsh-persona-profile 插件注册补丁
+# 把本插件插入 profile 的 Cordis 行栈。
+#
+# 行为：
+#   · 订阅会话事件，把真人发言攒进缓冲；
+#   · 每 intervalMinutes 分钟（或回合结束时到点）调用一次模型，把新样本合并进
+#     <dir>/profile.json + <dir>/profile.md（dir 默认 F:/性格）；
+#   · 向所有 agent 注入一段「性格档案在哪、什么时候去读」的系统提示；
+#   · 注册 persona_profile 工具（read / summary / refresh / status）。
+- insert:
+    - id: persona-profile
+      name: 'dsh-persona-profile'
+      config:
+        dir: 'F:/性格'
+        enabled: true
+        intervalMinutes: 30

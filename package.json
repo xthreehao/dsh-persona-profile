@@ -1,0 +1,56 @@
+{
+  "name": "dsh-persona-profile",
+  "version": "0.1.0",
+  "description": "DSH 用户性格档案插件：按会话累积真人发言，隔一段时间自动调用模型总结用户性格/偏好，落盘到 F:/性格；同时向所有 agent 注入「档案在哪、什么时候去读」的提示段，并提供 persona_profile 工具供模型按需读取或立即刷新。",
+  "type": "module",
+  "main": "lib/index.js",
+  "exports": {
+    ".": {
+      "default": "./lib/index.js"
+    },
+    "./profile": {
+      "default": "./lib/profile.js"
+    },
+    "./settings": {
+      "default": "./lib/settings.js"
+    },
+    "./package.json": "./package.json"
+  },
+  "dsh": {
+    "engines": {
+      "dsh": ">=0.1.1-rc.1"
+    },
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    }
+  },
+  "keywords": [
+    "dsh",
+    "deepseek-harness",
+    "plugin",
+    "persona",
+    "profile",
+    "memory"
+  ],
+  "scripts": {
+    "test": "node --test test/profile.test.mjs test/settings.test.mjs test/store.test.mjs && node scripts/smoke.mjs",
+    "test:unit": "node --test test/profile.test.mjs test/settings.test.mjs test/store.test.mjs",
+    "test:host": "node scripts/smoke.mjs"
+  },
+  "files": [
+    "lib",
+    "scripts",
+    "cordis.patch.yml",
+    "README.md"
+  ],
+  "license": "MIT",
+  "author": "xthreehao",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/xthreehao/dsh-persona-profile.git"
+  },
+  "homepage": "https://github.com/xthreehao/dsh-persona-profile#readme",
+  "bugs": {
+    "url": "https://github.com/xthreehao/dsh-persona-profile/issues"
+  }
+}
